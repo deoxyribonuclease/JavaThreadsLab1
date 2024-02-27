@@ -4,6 +4,8 @@ class MainThread extends Thread {
     private final int id;
     private final BreakThread breakThread;
     private final int step;
+    private final int workingTime;
+
 
 
     public MainThread(int id, BreakThread breakThread, int step, int workingTime) {
@@ -11,6 +13,7 @@ class MainThread extends Thread {
         this.breakThread = breakThread;
         this.step = step;
         this.breakThread.setTime(workingTime);
+        this.workingTime = workingTime;
     }
 
     @Override
@@ -24,6 +27,6 @@ class MainThread extends Thread {
             elementsCount++;
         }
 
-        System.out.println("Thread " + id + ": Sum = " + sum + ", Elements Count = " + elementsCount);
+        System.out.println("Thread " + id + ": Sum = " + sum + ", Elements Count = " + elementsCount + " Seconds: " + workingTime);
     }
 }
